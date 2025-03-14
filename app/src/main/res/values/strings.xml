@@ -1,3 +1,89 @@
 <resources>
-    <string name="app_name">PhytoDoc</string>
+    <string name="app_name">செடி Buddy</string>
+    <string name="photo_upload">Upload the photo</string>
+    <string name="predict">Predict</string>
+    <string name="Apple">Apple</string>
+    <string name="Blueberry">Blueberry</string>
+    <string name="Cherry">Cherry</string>
+    <string name="Corn">Corn</string>
+    <string name="Grape">Grape</string>
+    <string name="Orange">Orange</string>
+    <string name="Peach">Peach</string>
+    <string name="Pepperball">PepperBall</string>
+    <string name="Potato">Potato</string>
+    <string name="Raspberry">Raspberry</string>
+    <string name="Soybeans">Soybeans</string>
+    <string name="Squash">Squash</string>
+    <string name="Strawberry">Strawberry</string>
+    <string name="Tomato">Tomato</string>
+    <string name="apple_desc">Apple Overview: Nutritious fruit rich in fiber and antioxidants.&#10;
+Common Diseases: Apple Scab, Fire Blight, Powdery Mildew, Cedar Apple Rust.&#10;
+Prevention: Prune trees, remove infected parts, use resistant varieties.&#10;
+Control: Apply fungicides, organic sprays, and improve air circulation.</string>
+
+    <string name="blueberry_desc">Blueberry Overview: Nutrient-rich berry high in antioxidants and vitamins.&#10;
+Common Diseases: Mummy Berry, Anthracnose, Leaf Rust, Botrytis Blight.&#10;
+Prevention: Prune bushes, ensure good air circulation, use resistant varieties.&#10;
+Control: Apply fungicides, remove infected fruit, maintain soil health.</string>
+
+    <string name="cherry_desc">Cherry Overview: Sweet, tart fruit high in vitamins and antioxidants.&#10;
+Common Diseases: Brown Rot, Leaf Spot, Bacterial Canker, Powdery Mildew.&#10;
+Prevention: Prune trees, remove infected fruit, use disease-free plants.&#10;
+Control: Apply copper sprays, fungicides, and improve air circulation.</string>
+
+    <string name="corn_desc">Corn Overview: Staple cereal crop rich in fiber and essential nutrients.&#10;
+Common Diseases: Rust, Smut, Northern Leaf Blight, Stewart’s Wilt.&#10;
+Prevention: Rotate crops, use resistant varieties, avoid wet soil.&#10;
+Control: Apply fungicides, remove infected plants, manage weeds.</string>
+
+    <string name="grape_desc">Grape Overview: Popular fruit for wine, juice, and fresh consumption.&#10;
+Common Diseases: Downy Mildew, Powdery Mildew, Black Rot, Pierce’s Disease.&#10;
+Prevention: Prune vines, ensure airflow, remove infected leaves.&#10;
+Control: Use sulfur sprays, fungicides, and resistant grape varieties.</string>
+
+    <string name="orange_desc">Orange Overview: Citrus fruit rich in vitamin C and immune-boosting compounds.&#10;
+Common Diseases: Citrus Canker, Greening, Root Rot, Sooty Mold.&#10;
+Prevention: Use certified trees, manage pests, maintain soil health.&#10;
+Control: Apply copper sprays, remove infected leaves, control insects.</string>
+
+    <string name="peach_desc">Peach Overview: Juicy fruit rich in vitamins A and C, promotes skin health.&#10;
+Common Diseases: Peach Leaf Curl, Brown Rot, Bacterial Spot, Gummosis.&#10;
+Prevention: Prune trees, plant resistant varieties, avoid overhead watering.&#10;
+Control: Apply fungicides, remove infected fruit, use copper sprays.</string>
+
+    <string name="pepperball_desc">Pepperball Overview: Spicy fruit used for seasoning and medicinal purposes.&#10;
+Common Diseases: Bacterial Spot, Anthracnose, Mosaic Virus, Wilt.&#10;
+Prevention: Use disease-free seeds, avoid overhead watering, rotate crops.&#10;
+Control: Remove infected plants, apply fungicides, manage pests.</string>
+
+    <string name="potato_desc">Potato Overview: Staple tuber crop, rich in carbohydrates and vitamins.&#10;
+Common Diseases: Late Blight, Blackleg, Scab, Potato Virus Y.&#10;
+Prevention: Use certified seeds, rotate crops, manage soil health.&#10;
+Control: Remove infected plants, apply fungicides, control pests.</string>
+
+    <string name="soybeans_desc">Soybeans Overview: Protein-rich legume used in food and animal feed.&#10;
+Common Diseases: Soybean Rust, Root Rot, Brown Spot, Mosaic Virus.&#10;
+Prevention: Rotate crops, use resistant varieties, manage moisture.&#10;
+Control: Apply fungicides, remove diseased plants, ensure drainage.</string>
+
+    <string name="squash_desc">Squash Overview: Nutrient-rich vegetable used in various cuisines.&#10;
+Common Diseases: Powdery Mildew, Mosaic Virus, Wilt, Anthracnose.&#10;
+Prevention: Space plants properly, use disease-resistant varieties.&#10;
+Control: Remove infected leaves, apply fungicides, control insects.</string>
+
+    <string name="raspberry_desc">Raspberry Overview: Sweet, tart berry high in fiber and antioxidants.&#10;
+Common Diseases: Cane Blight, Powdery Mildew, Root Rot, Mosaic Virus.&#10;
+Prevention: Prune canes, avoid wet soil, use disease-resistant plants.&#10;
+Control: Apply fungicides, remove infected canes, manage irrigation.</string>
+
+    <string name="tomato_desc">Tomato Overview: Popular vegetable rich in vitamins and antioxidants.&#10;
+Common Diseases: Blight, Wilt, Leaf Curl Virus, Mosaic Virus.&#10;
+Prevention: Rotate crops, stake plants, ensure proper ventilation.&#10;
+Control: Remove infected leaves, apply fungicides, control pests.</string>
+
+    <string name="strawberry_desc">Strawberry Overview: Juicy berry rich in vitamin C and antioxidants.&#10;
+Common Diseases: Gray Mold, Leaf Spot, Powdery Mildew, Anthracnose.&#10;
+Prevention: Space plants properly, use mulch, avoid overhead watering.&#10;
+Control: Apply fungicides, remove infected fruit, improve drainage.</string>
+
 </resources>

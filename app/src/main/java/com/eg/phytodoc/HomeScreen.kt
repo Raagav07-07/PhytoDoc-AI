@@ -57,6 +57,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -71,6 +72,7 @@ import com.eg.phytodoc.ui.theme.Bluef
 import com.eg.phytodoc.ui.theme.Green1
 import com.eg.phytodoc.ui.theme.Green2
 import com.eg.phytodoc.ui.theme.Green3
+import com.eg.phytodoc.ui.theme.LightYellow
 import com.eg.phytodoc.ui.theme.OrangeF
 
 import com.eg.phytodoc.ui.theme.Poppins
@@ -84,64 +86,64 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeScreen(navController:NavController) {
     Scaffold {
-         Box(modifier = Modifier
-             .fillMaxSize()
-             .background(Green2),
-             ){
-             Row(){
-                 val navigationController = rememberNavController()
-             IconButton(onClick = {
-                 navController.navigate(Screens.Predict.screen) {
 
-                 }
-             }) {
-                 Icon(imageVector = Icons.Default.Search, contentDescription ="Null", tint = Color.White )
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .background(Green2),
+        ){
+            Row(){
+                val navigationController = rememberNavController()
+                IconButton(onClick = {
+                    navController.navigate(Screens.Predict.screen) {
 
-             }
-                 Text(text="Upload the photo", style=TextStyle(fontFamily = Poppins, fontSize = 20.sp),modifier = Modifier.padding(8.dp), color = Color.White)}
+                    }
+                }) {
+                    Icon(imageVector = Icons.Default.Search, contentDescription ="Null", tint = Color.White )
+                }
+                Text(text= stringResource(id = R.string.photo_upload), style=TextStyle(fontFamily = Poppins, fontSize = 20.sp),modifier = Modifier.padding(8.dp), color = Color.White)}
             Box(modifier = Modifier
                 .padding(top = 55.dp)
                 .fillMaxSize()
                 .clip(
-                    RoundedCornerShape(topStart = 35.dp,topEnd=35.dp)
-                ).background(Color.White)
-
+                    RoundedCornerShape(topStart = 35.dp, topEnd = 35.dp)
+                )
+                .background(LightYellow)
             ){
                 val scrollState= rememberScrollState()
-               Column(modifier=Modifier.verticalScroll(scrollState)){ Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                   card(R.drawable.apple,"Apple")
-                   Spacer(modifier = Modifier.height(10.dp))
-                   card(R.drawable.blueberry,"Blueberry")}
-                   Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                       card(R.drawable.cherry,"Cherry")
-                       Spacer(modifier = Modifier.height(10.dp))
-                       card(R.drawable.corn,"Corn")}
-                   Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                       card(R.drawable.grape,"Grape")
-                       Spacer(modifier = Modifier.height(10.dp))
-                       card(R.drawable.orange,"Orange")}
-                   Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                       card(R.drawable.peach,"Peach")
-                       Spacer(modifier = Modifier.height(10.dp))
-                       card(R.drawable.pepperball,"Pepperball")}
-                   Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                       card(R.drawable.potato,"Potato")
-                       Spacer(modifier = Modifier.height(10.dp))
-                       card(R.drawable.raspberry,"Raspberry")}
-                   Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                       card(R.drawable.soybeans,"Soybeans")
-                       Spacer(modifier = Modifier.height(10.dp))
-                       card(R.drawable.squash,"Squash")}
-                   Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
-                       card(R.drawable.strawberry,"Strawberry")
-                       Spacer(modifier = Modifier.height(10.dp))
-                       card(R.drawable.tomato,"Tomato") }}
+                Column(modifier=Modifier.verticalScroll(scrollState)){ Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                    card(R.drawable.apple, "Apple", stringResource(id = R.string.Apple))
+                    Spacer(modifier = Modifier.height(10.dp))
+                    card(R.drawable.blueberry,"Apple",stringResource(id = R.string.Blueberry))}
+                    Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                        card(R.drawable.cherry,"Cherry",stringResource(id = R.string.Cherry))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        card(R.drawable.corn,"Corn",stringResource(id = R.string.Corn))}
+                    Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                        card(R.drawable.grape,"Grape",stringResource(id = R.string.Grape))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        card(R.drawable.orange,"Orange", stringResource(id = R.string.Orange))}
+                    Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                        card(R.drawable.peach,"Peach",stringResource(id = R.string.Peach))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        card(R.drawable.pepperball,"Peachball",stringResource(id = R.string.Pepperball))}
+                    Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                        card(R.drawable.potato,"Potato",stringResource(id = R.string.Potato))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        card(R.drawable.raspberry,"Raspberry",stringResource(id = R.string.Raspberry))}
+                    Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                        card(R.drawable.soybeans,"Soybeans",stringResource(id = R.string.Soybeans))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        card(R.drawable.squash,"Squash",stringResource(id = R.string.Squash))}
+                    Row(modifier=Modifier.padding(top = 25.dp,start=20.dp),horizontalArrangement = Arrangement.spacedBy(24.dp)){
+                        card(R.drawable.strawberry,"Strawberry",stringResource(id = R.string.Strawberry))
+                        Spacer(modifier = Modifier.height(10.dp))
+                        card(R.drawable.tomato,"Tomato",stringResource(id = R.string.Tomato)) }}
             }
-    }
+        }
     }
 }
 @Composable
-fun card(image:Int,text:String){
+fun card(image:Int,text:String,textid:String){
     var showDialog by remember { mutableStateOf(false) }
     ElevatedCard(modifier = Modifier
         .height(199.dp)
@@ -154,7 +156,7 @@ fun card(image:Int,text:String){
                 .background(
                     Green3
                 )
-                , horizontalAlignment = Alignment.CenterHorizontally
+            , horizontalAlignment = Alignment.CenterHorizontally
 
         ){
             Image(
@@ -165,7 +167,7 @@ fun card(image:Int,text:String){
                     .width(164.dp)
                     .clip(RoundedCornerShape(5.dp)), contentScale = ContentScale.Crop
             )
-            Text(text=text,style=TextStyle(fontFamily = Poppins, fontSize = 20.sp), color = Color.White)
+            Text(text=textid,style=TextStyle(fontFamily = Poppins, fontSize = 20.sp), color = Color.White)
         }
 
     }
@@ -175,33 +177,34 @@ fun card(image:Int,text:String){
                 .clip(RoundedCornerShape(16.dp))
                 .background(blue2)
                 .padding(16.dp)){
-        Column (horizontalAlignment = Alignment.CenterHorizontally){
-            val t:Description= getDescriptionForText(text)
-            Text(text = t.desc,style=TextStyle(fontFamily = Poppins, fontSize = 20.sp))
-            Button(onClick = { showDialog = false }, colors = ButtonDefaults.buttonColors(Green3)) {
-                Text("Close")
-            }
-        }
+                Column (horizontalAlignment = Alignment.CenterHorizontally){
+                    val t:String= getDescriptionForText(text)
+                    Text(text = t,style=TextStyle(fontFamily = Poppins, fontSize = 20.sp))
+                    Button(onClick = { showDialog = false }, colors = ButtonDefaults.buttonColors(Green3)) {
+                        Text("Close")
+                    }
+                }
             }
         }
     }
 }
-fun getDescriptionForText(text: String): Description {
+@Composable
+fun getDescriptionForText(text: String): String {
     return when (text) {
-        "Apple" -> Description.Apple
-        "Blueberry" -> Description.Blueberry
-        "Cherry" -> Description.Cherry
-        "Corn" -> Description.Corn
-        "Grape" -> Description.Grape
-        "Orange" -> Description.Orange
-        "Peach" -> Description.Peach
-        "Pepperball" -> Description.Pepperball
-        "Potato" -> Description.Potato
-        "Soybeans" -> Description.Soybeans
-        "Squash" -> Description.Squash
-        "Raspberry" -> Description.Raspberry
-        "Tomato" -> Description.Tomato
-        "Strawberry" -> Description.Strawberry
-        else -> Description.Apple
+        "Apple" -> stringResource(id = R.string.apple_desc)
+        "Blueberry" -> stringResource(id = R.string.blueberry_desc)
+        "Cherry" -> stringResource(id = R.string.cherry_desc)
+        "Corn" -> stringResource(id = R.string.corn_desc)
+        "Grape" -> stringResource(id = R.string.grape_desc)
+        "Orange" -> stringResource(id = R.string.orange_desc)
+        "Peach" -> stringResource(id = R.string.peach_desc)
+        "Pepperball" -> stringResource(id = R.string.pepperball_desc)
+        "Potato" -> stringResource(id = R.string.potato_desc)
+        "Soybeans" -> stringResource(id = R.string.soybeans_desc)
+        "Squash" -> stringResource(id = R.string.squash_desc)
+        "Raspberry" -> stringResource(id = R.string.raspberry_desc)
+        "Tomato" -> stringResource(id = R.string.tomato_desc)
+        "Strawberry" -> stringResource(id = R.string.strawberry_desc)
+        else -> stringResource(id = R.string.apple_desc)
     }
 }

@@ -71,6 +71,10 @@ class MainActivity() : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val selectedLanguage = this.intent?.getStringExtra("LANGUAGE") ?: LocaleHelper.getSavedLanguage(this)
+
+
+        LocaleHelper.setAppLocale(this, selectedLanguage)
         enableEdgeToEdge()
         setContent {
             PhytoDocTheme {
@@ -135,7 +139,7 @@ fun NavDrawer() {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "PhytoDoc",style= TextStyle(fontFamily = Poppins, fontSize = 25.sp)) },
+                    title = { Text(text = "செடி Buddy",style= TextStyle(fontFamily = Poppins, fontSize = 25.sp)) },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = Green2,
                         titleContentColor = Color.White
