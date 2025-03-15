@@ -204,7 +204,7 @@ fun uriToBitmap(context: Context, uri: Uri): Bitmap? {
 // Initialize Generative AI Model
 var generativeModel: GenerativeModel = GenerativeModel(
     modelName = "gemini-1.5-pro-002",
-    apiKey = "AIzaSyCCX6-dy8i7xj9QCM5Nv_uXh_6UhXWlC8I"
+    apiKey = "####"
 )
 
 
