@@ -85,5 +85,6 @@ Control: Remove infected leaves, apply fungicides, control pests.</string>
 Common Diseases: Gray Mold, Leaf Spot, Powdery Mildew, Anthracnose.&#10;
 Prevention: Space plants properly, use mulch, avoid overhead watering.&#10;
 Control: Apply fungicides, remove infected fruit, improve drainage.</string>
+    <string name="processing">"After pressing the predict button, wait for some time."</string>
 
 </resources>

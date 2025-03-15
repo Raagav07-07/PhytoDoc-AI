@@ -52,7 +52,6 @@ android {
 }
 
 dependencies {
-    implementation("org.tensorflow:tensorflow-lite:2.12.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -64,6 +63,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.tensorflow.lite.metadata)
     implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.gpu)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

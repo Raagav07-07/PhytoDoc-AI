@@ -81,7 +81,7 @@ class MainActivity() : ComponentActivity() {
                 val navController = rememberNavController()
                 Scaffold {
 
-NavDrawer()
+NavDrawer(selectedLanguage)
 
                 }
             }
@@ -92,7 +92,7 @@ NavDrawer()
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun NavDrawer() {
+fun NavDrawer(selectedLanguage:String) {
     val navigationController = rememberNavController()
     val coroutineScope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -155,7 +155,7 @@ fun NavDrawer() {
             Box(modifier = Modifier.padding(paddingValues)) {
                 NavHost(navController = navigationController, startDestination = Screens.Home.screen) {
                     composable(Screens.Home.screen) { HomeScreen(navigationController) }
-                    composable(Screens.Predict.screen) { Predict() }
+                    composable(Screens.Predict.screen) { Predict(selectedLanguage) }
                 }
             }
         }

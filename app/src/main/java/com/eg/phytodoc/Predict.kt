@@ -38,7 +38,8 @@ import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
 @Composable
-fun Predict() {
+fun Predict(selectedLan:String) {
+    val Lang=if(selectedLan=="ta") "Tamil" else "English"
     val context = LocalContext.current
     var outputClass by remember { mutableStateOf("") }
     var selectedImages by remember { mutableStateOf(listOf<Uri>()) }
@@ -56,7 +57,7 @@ fun Predict() {
                     if (selectedImages.isNotEmpty()) {
                         val bitImg = uriToBitmap(context, selectedImages[0])
                         if (bitImg != null) {
-                            OutputClassify(context, bitImg) { result ->
+                            OutputClassify(context, bitImg,Lang) { result ->
                                 outputClass = result
                             }
                         } else {
@@ -82,7 +83,7 @@ fun Predict() {
                 }
             }
 
-            Text(text = if (outputClass.isNotEmpty()) {outputClass} else if(selectedImages.isNotEmpty()){"Processing"}
+            Text(text = if (outputClass.isNotEmpty()) {outputClass} else if(selectedImages.isNotEmpty()){stringResource(R.string.processing)}
             else{""},style= TextStyle(fontFamily = Poppins, fontSize = 20.sp)
             )
         }
@@ -97,7 +98,7 @@ fun Predict() {
 
 /** Runs model inference on the image and returns the predicted class label */
 @SuppressLint("NewApi")
-fun OutputClassify(context: Context, imageBit: Bitmap, onResult: (String) -> Unit) {
+fun OutputClassify(context: Context, imageBit: Bitmap,Lang:String, onResult: (String) -> Unit) {
     val model = ConvertedModel.newInstance(context)
     val resizedBitmap = Bitmap.createScaledBitmap(imageBit, 128, 128, true)
     val byteBuffer = bitmapToFloatBuffer(resizedBitmap, 128)
@@ -105,14 +106,35 @@ fun OutputClassify(context: Context, imageBit: Bitmap, onResult: (String) -> Uni
     val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 128, 128, 3), DataType.FLOAT32)
     inputFeature0.loadBuffer(byteBuffer)
 
-    // Run classification in a coroutine
-    val pred = listOf("Pepper bell Bacterial spot","Pepper bell healthy","Potato Early blight","Potato Late blight","Potato healthy","Tomato Bacterial spot","Tomato Early blight","Tomato Late blight","Tomato Leaf Mold","Tomato Septoria leaf spot","Tomato Spider mites Two spotted spider mite","Tomato Target Spot","Tomato YellowLeaf Curl Virus","Tomato Tomato mosaic virus","Tomato_healthy")
-    val predRes = pred.random()
+    inputFeature0.loadBuffer(byteBuffer)
+    val outputs = model.process(inputFeature0)
+    val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+    val scores = outputFeature0.floatArray
+    val predictedClassIndex = scores.indices.maxByOrNull { scores[it] } ?: 0
+    val pred = listOf("Apple Apple scab", "Apple Black rot", "Apple Cedar apple rust", "Apple healthy",
+        "Blueberry healthy", "Cherry (including sour) Powdery mildew", "Cherry (including sour) healthy",
+        "Corn (maize) Cercospora leaf spot Gray leaf spot", "Corn (maize) Common rust",
+        "Corn (maize) Northern Leaf Blight", "Corn (maize) healthy", "Grape Black rot",
+        "Grape Esca (Black Measles)", "Grape Leaf blight (Isariopsis Leaf Spot)", "Grape healthy",
+        "Orange Haunglongbing (Citrus greening)", "Peach Bacterial spot", "Peach healthy",
+        "Pepper, bell Bacterial spot", "Pepper, bell healthy", "Potato Early blight",
+        "Potato Late blight", "Potato healthy", "Raspberry healthy", "Soybean healthy",
+        "Squash Powdery mildew", "Strawberry Leaf scorch", "Strawberry healthy",
+        "Tomato Bacterial spot", "Tomato Early blight", "Tomato Late blight", "Tomato Leaf Mold",
+        "Tomato Septoria leaf spot", "Tomato Spider mites Two-spotted spider mite", "Tomato Target Spot",
+        "Tomato Tomato Yellow Leaf Curl Virus", "Tomato Tomato mosaic virus", "Tomato healthy")
+    val predRes = pred[predictedClassIndex]
     Log.i("pred",predRes)
     CoroutineScope(Dispatchers.IO).launch {
         try {
             val response = SendMessage("Give the response the given format " +
-                   " if it is healthy give some suggestions based on the maintanence of the plant or else give the second point as Preventive measures not more than two lines and third line give the recent occurance of the disease (text format).Conditions:Ignore astericks required for bolding,content should be simple and not more than 30 lines. The name is $predRes")
+                   " if it is healthy give some suggestions based on the maintanence of the plant or else give the second point as Preventive measures not more than two lines and third line give the recent occurance of the disease (text format)." +
+                    "Conditions:" +
+                    "1)Without astericks required for bolding" +
+                    "2)content should be simple and not more than 30 lines. " +
+                    "3)Give the recent occurence of the disease if it is a disease"+
+                    "4)The response should be in $Lang"+
+                    "The name is $predRes")
 
 
             withContext(Dispatchers.Main) {
